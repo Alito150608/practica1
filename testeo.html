@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testeo en Animales</title>
+  <link rel="stylesheet" href="css/confetti.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    #header {
+      background-color: #b6f7d6;
+      border-radius: 10px;
+      padding: 5px;
+      text-align: center;
+    }
+
+    #header h3 {
+      color: #af3ca0;
+      font-size: 26px;
+    }
+
+    #seccion {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .barra {
+      padding: 10px;
+      margin: 5px;
+      background: #f3abe7;
+      flex: 3;
+      border-radius: 10px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+
+    .contenido {
+      padding: 10px;
+      border-radius: 10px;
+      background: rgb(236, 69, 161);
+      margin: 5px;
+      flex: 1 150px;
+    }
+
+    .subcontenido2 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #resultado {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .texto-rojo {
+      font-size: 40px;
+      font-weight: bold;
+      color: red;
+    }
+
+    #footer {
+      background-color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    #imagen-interactiva {
+      position: relative;
+      width: 500px;
+      height: 400px;
+      background-image: url('principal.jpg');
+      background-size: cover;
+      border: 2px solid #e6dede;
+      border-radius: 10px;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 40px;
+      height: 45px;
+      background-color: rgba(0, 21, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(248, 240, 240);
+      font-weight: bold;
+    }
+
+    #hotspot1 { top: 40px; left: 80px; }   
+    #hotspot2 { top: 100px; left: 300px; }  
+    #hotspot3 { top: 220px; left: 200px; }  
+    #hotspot4 { top: 300px; left: 100px; }  
+    #hotspot5 { top: 260px; left: 380px; }  
+
+    .proyecto {
+      height: 150px;
+      max-width: 150px;
+      background-color: white;
+      border-radius: 10px;
+      margin: 10px;
+      flex: 1 100px;
+    }
+
+    #instrucciones, #prueba {
+      cursor: pointer;
+    }
+
+    .visible {
+      display: flex !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h3>Testeo en Animales 🐰🐶🐭🐱🐒</h3>
+  </div>
+
+  <div id="seccion">
+    <div class="barra">
+      <div id="imagen-interactiva">
+        <div id="hotspot1" class="hotspot">conejo</div>
+        <div id="hotspot2" class="hotspot">raton</div>
+        <div id="hotspot3" class="hotspot">perro</div>
+        <div id="hotspot4" class="hotspot">gato</div>
+        <div id="hotspot5" class="hotspot">mono</div>
+      </div>
+    </div>
+
+    <div class="contenido">
+      <div class="subcontenido1">
+        <h2 id="titulo-info">Instrucciones</h2>
+        <p id="texto-info">
+          Haz clic en cada uno de los puntos de la imagen para ver información sobre el testeo en animales.  
+          Después realiza el test de conocimientos.
+        </p>
+      </div>
+      <div class="subcontenido2">
+        <div class="proyecto">
+          <img id="imagen-info" src="123.jpg" alt="info" style="width:100%; height:100%; border-radius:10px;">
+        </div>
+      </div>
+
+      <div id="resultado">
+        <h2>Tu resultado:</h2>
+        <span id="calif" class="texto-rojo">0/10</span>
+        <img id="imagen-resultado" width="200px" src="1.png" />
+      </div>
+    </div>
+  </div>
+
+   <div id="footer">
+    <div id="instrucciones"><img width="100px" src="instrucciones.png" alt="Instrucciones" /></div>
+    <div id="prueba"><img width="100px" src="test.jpg" alt="Test" /></div>
+  </div>
+
+  <script>
+    let puntaje = 0;
+
+    // Información de cada animal
+    document.getElementById('hotspot1').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Conejo 🐇';
+      document.getElementById('texto-info').textContent = 'Los conejos son frecuentemente usados en pruebas cosméticas para medir irritación ocular o dérmica, aunque hoy se busca reemplazar estos métodos.';
+      document.getElementById('imagen-info').setAttribute('src', 'conejo.jpg');
+    };
+
+    document.getElementById('hotspot2').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Ratón 🐭';
+      document.getElementById('texto-info').textContent = 'Los ratones se utilizan comúnmente para estudiar enfermedades humanas, efectos de medicamentos y genética.';
+      document.getElementById('imagen-info').setAttribute('src', 'raton.jpg');
+    };
+
+    document.getElementById('hotspot3').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Perro 🐶';
+      document.getElementById('texto-info').textContent = 'Los perros son usados en estudios de toxicología y cardiología, aunque esto ha generado fuertes debates éticos.';
+      document.getElementById('imagen-info').setAttribute('src', 'perro.jpg');
+    };
+
+    document.getElementById('hotspot4').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Gato 🐱';
+      document.getElementById('texto-info').textContent = 'Los gatos se usan para investigaciones neurológicas, aunque su uso ha disminuido gracias a alternativas tecnológicas.';
+      document.getElementById('imagen-info').setAttribute('src', 'gato.jpg');
+    };
+
+    document.getElementById('hotspot5').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Mono 🐒';
+      document.getElementById('texto-info').textContent = 'Los primates se usan en experimentos sobre comportamiento, vacunas y neurología, siendo uno de los temas más polémicos del testeo animal.';
+      document.getElementById('imagen-info').setAttribute('src', 'mono.jpg');
+    };
+
+    // Volver a instrucciones
+    document.getElementById('instrucciones').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Instrucciones';
+      document.getElementById('texto-info').textContent = 'Haz clic en cada punto para ver información sobre el testeo en animales. Luego realiza el test.';
+      document.getElementById('imagen-info').setAttribute('src', '123.jpg');
+    };
+
+    // Test de conocimientos con 10 preguntas
+    document.getElementById('prueba').onclick = function(){
+      puntaje = 0;
+      alert("Bienvenido al test sobre Testeo en Animales 🐾");
+      alert("Responde correctamente las 10 preguntas para ganar 🎯");
+
+      let p1 = prompt("1️⃣ ¿Qué animal se usa comúnmente en pruebas cosméticas?");
+      if (p1 && p1.trim().toLowerCase() === "conejo") { puntaje++; }
+
+      let p2 = prompt("2️⃣ ¿Qué animal se usa para estudiar enfermedades humanas?");
+      if (p2 && (p2.trim().toLowerCase() === "ratón" || p2.trim().toLowerCase() === "raton")) { puntaje++; }
+
+      let p3 = prompt("3️⃣ ¿Qué animal se usa en estudios cardiológicos?");
+      if (p3 && p3.trim().toLowerCase() === "perro") { puntaje++; }
+
+      let p4 = prompt("4️⃣ ¿Qué animal se usa en investigaciones neurológicas?");
+      if (p4 && p4.trim().toLowerCase() === "gato") { puntaje++; }
+
+      let p5 = prompt("5️⃣ ¿Qué animal se usa en experimentos sobre vacunas y comportamiento?");
+      if (p5 && p5.trim().toLowerCase() === "mono") { puntaje++; }
+
+      let p6 = prompt("6️⃣ ¿Qué animal se usa para probar productos de limpieza y sustancias químicas?");
+      if (p6 && (p6.trim().toLowerCase() === "cobayo" || p6.trim().toLowerCase() === "cuy")) { puntaje++; }
+
+      let p7 = prompt("7️⃣ ¿Qué animal se utiliza frecuentemente para estudiar el cáncer?");
+      if (p7 && (p7.trim().toLowerCase() === "ratón" || p7.trim().toLowerCase() === "raton")) { puntaje++; }
+
+      let p8 = prompt("8️⃣ ¿Qué animal se usa para estudiar la audición y el equilibrio?");
+      if (p8 && p8.trim().toLowerCase() === "gato") { puntaje++; }
+
+      let p9 = prompt("9️⃣ ¿Qué animal se usa para probar medicamentos contra enfermedades cardíacas?");
+      if (p9 && p9.trim().toLowerCase() === "perro") { puntaje++; }
+
+      let p10 = prompt("🔟 ¿Qué animal se utiliza para pruebas de inteligencia y comportamiento social?");
+      if (p10 && p10.trim().toLowerCase() === "mono") { puntaje++; }
+
+      alert("Tu puntaje final es: " + puntaje + "/10 🎉");
+
+      document.getElementById("calif").textContent = puntaje + "/10";
+      document.getElementById("resultado").classList.add("visible");
+    };
+  </script>
+</body>
+</html>
