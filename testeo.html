@@ -247,6 +247,9 @@
       let p10 = prompt("🔟 ¿Qué animal se utiliza para pruebas de inteligencia y comportamiento social?");
       if (p10 && p10.trim().toLowerCase() === "mono") { puntaje++; }
 
+      let p11 = prompt("1️⃣1️⃣ ¿Qué animal se usa comúnmente en estudios sobre la diabetes?");
+      if (p11 && (p11.trim().toLowerCase() === "cerdo" || p11.trim().toLowerCase() === "cerdita")) { puntaje++; }
+
       alert("Tu puntaje final es: " + puntaje + "/10 🎉");
 
       document.getElementById("calif").textContent = puntaje + "/10";
@@ -255,3 +258,4 @@
   </script>
 </body>
 </html>
+
